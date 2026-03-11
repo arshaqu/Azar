@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mandatory Disclosure – Azar Public School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/style.css"/>
+  <style>
+    /* ══════════════════════════════
+       MANDATORY DISCLOSURE PAGE STYLES
+       Add these to your style.css
+    ══════════════════════════════ */
+
+    /* ── HERO BANNER ── */
+    .md-hero {
+      background: var(--sand, #eee8da);
+      position: relative;
+      overflow: hidden;
+      padding: 70px 40px 90px;
+      text-align: center;
+    }
+    .md-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 55px;
+      background: #fff;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .md-hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    .md-hero-blob-1 { width: 240px; height: 240px; background: #2dc3b8; top: -70px; left: -70px; }
+    .md-hero-blob-2 { width: 180px; height: 180px; background: #1e3a4a; bottom: 10px; right: 60px; }
+    .md-hero-blob-3 { width: 100px; height: 100px; background: #2dc3b8; top: 30px; right: 200px; }
+
+    .md-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(45,195,184,0.12);
+      color: #2dc3b8;
+      border: 1.5px solid #2dc3b8;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      margin-bottom: 20px;
+      animation: mdFadeDown .5s ease both;
+    }
+
+    .md-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.4rem;
+      font-weight: 900;
+      color: #1e3a4a;
+      line-height: 1.15;
+      animation: mdFadeDown .6s ease .1s both;
+    }
+    .md-hero h1 em {
+      font-style: normal;
+      color: #2dc3b8;
+    }
+
+    .md-hero-sub {
+      color: #6b7280;
+      font-size: 1rem;
+      margin-top: 14px;
+      max-width: 540px;
+      margin-left: auto; margin-right: auto;
+      line-height: 1.75;
+      animation: mdFadeDown .6s ease .2s both;
+    }
+
+    .md-breadcrumb {
+      display: flex; justify-content: center;
+      align-items: center; gap: 8px;
+      margin-top: 22px;
+      font-size: 0.82rem; color: #9ca3af;
+      animation: mdFadeDown .6s ease .3s both;
+    }
+    .md-breadcrumb a { color: #2dc3b8; text-decoration: none; font-weight: 800; }
+
+    /* ── INTRO ── */
+    .md-intro {
+      padding: 64px 40px 10px;
+      display: flex; justify-content: center;
+    }
+    .md-intro-inner {
+      max-width: 880px; width: 100%;
+      background: #f9f7f3;
+      border-radius: 20px;
+      padding: 36px 40px;
+      border-left: 6px solid #2dc3b8;
+    }
+    .md-intro-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; color: #1e3a4a; margin-bottom: 12px;
+    }
+    .md-intro-inner p { color: #6b7280; line-height: 1.85; font-size: 0.95rem; }
+
+    /* ── STATS ── */
+    .md-stats {
+      display: flex; justify-content: center;
+      flex-wrap: wrap; gap: 20px;
+      padding: 40px 40px 0;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .md-stat {
+      background: #fff;
+      border: 1.5px solid #e8e2d7;
+      border-top: 4px solid #2dc3b8;
+      border-radius: 16px;
+      padding: 22px 36px;
+      text-align: center;
+      min-width: 130px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+      transition: transform .2s;
+    }
+    .md-stat:hover { transform: translateY(-4px); }
+    .md-stat strong { display: block; font-size: 1.9rem; font-weight: 900; color: #1e3a4a; }
+    .md-stat span { font-size: 0.72rem; color: #6b7280; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+
+    /* ── SECTION HEADING ── */
+    .md-section-title {
+      text-align: center;
+      padding: 60px 40px 16px;
+    }
+    .md-section-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem; color: #1e3a4a;
+    }
+    .md-section-title p { color: #6b7280; margin-top: 8px; font-size: 0.9rem; }
+    .md-title-line {
+      width: 56px; height: 4px;
+      background: #2dc3b8; border-radius: 4px;
+      margin: 14px auto 0;
+    }
+
+    /* ── PDF GRID ── */
+    .md-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: 40px auto 70px;
+      padding: 0 40px;
+    }
+
+    .md-card {
+      background: #fff;
+      border-radius: 20px;
+      border: 1.5px solid #e8e2d7;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.07);
+      padding: 30px 20px 24px;
+      text-align: center;
+      position: relative;
+      overflow: visible;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+      animation: mdFadeUp .5s ease both;
+    }
+    .md-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 44px rgba(45,195,184,0.18);
+      border-color: #2dc3b8;
+    }
+
+    .md-card-num {
+      position: absolute;
+      top: -13px; right: 14px;
+      width: 30px; height: 30px;
+      background: #1e3a4a;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      box-shadow: 0 3px 10px rgba(30,58,74,0.35);
+    }
+
+    .md-card-icon {
+      width: 60px; height: 68px;
+      margin: 0 auto 18px;
+    }
+    .md-card-icon svg { width: 100%; height: 100%; }
+
+    .md-card h3 {
+      font-size: 0.87rem;
+      font-weight: 800;
+      color: #1e3a4a;
+      margin-bottom: 18px;
+      line-height: 1.45;
+      min-height: 38px;
+    }
+
+    .md-card-btns { display: flex; gap: 8px; justify-content: center; }
+
+    .md-btn-view, .md-btn-dl {
+      border: none; border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: 0.76rem;
+      cursor: pointer; padding: 9px 16px;
+      display: flex; align-items: center; gap: 5px;
+      transition: all .2s;
+    }
+    .md-btn-view { background: #2dc3b8; color: #fff; }
+    .md-btn-view:hover { background: #22a89f; transform: scale(1.05); }
+    .md-btn-dl { background: #1e3a4a; color: #fff; }
+    .md-btn-dl:hover { background: #16303e; transform: scale(1.05); }
+
+    /* ── MODAL ── */
+    .md-modal {
+      position: fixed; inset: 0;
+      background: rgba(10,25,35,0.8);
+      backdrop-filter: blur(5px);
+      z-index: 9999;
+      display: none;
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .md-modal.open { display: flex; }
+
+    .md-modal-box {
+      background: #fff;
+      border-radius: 22px;
+      width: 100%; max-width: 900px;
+      height: 90vh;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.35);
+      animation: mdPopIn .3s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    .md-modal-head {
+      background: #1e3a4a;
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .md-modal-head h3 { color: #fff; font-size: 1rem; font-weight: 800; }
+    .md-modal-head-right { display: flex; gap: 10px; align-items: center; }
+
+    .md-modal-dl {
+      background: #2dc3b8; color: #fff;
+      border: none; border-radius: 50px;
+      padding: 8px 20px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: 0.82rem;
+      cursor: pointer; transition: background .2s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .md-modal-dl:hover { background: #22a89f; }
+
+    .md-modal-close {
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,0.15);
+      border: none; border-radius: 50%;
+      color: #fff; font-size: 1.1rem;
+      cursor: pointer; display: flex;
+      align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .md-modal-close:hover { background: rgba(255,255,255,0.3); }
+
+    .md-modal-body { flex: 1; overflow: hidden; }
+    .md-modal-body iframe { width: 100%; height: 100%; border: none; }
+
+    .md-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: #f6f6f6; gap: 14px;
+    }
+    .md-placeholder .ph-icon { font-size: 5rem; }
+    .md-placeholder p { font-weight: 800; color: #1e3a4a; font-size: 1rem; }
+    .md-placeholder small { color: #9ca3af; font-size: 0.8rem; max-width: 320px; text-align: center; line-height: 1.6; }
+
+    /* ── FOOTER ── */
+    .md-footer {
+      background: #1e3a4a;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 28px 40px;
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+    .md-footer strong { color: #2dc3b8; }
+    .md-footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .md-footer a:hover { color: #2dc3b8; }
+
+    /* ── KEYFRAMES ── */
+    @keyframes mdFadeDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes mdFadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes mdPopIn {
+      from { opacity: 0; transform: scale(0.93) translateY(24px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .md-hero h1 { font-size: 2.2rem; }
+      .md-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; }
+      .md-intro { padding: 40px 20px 10px; }
+      .md-intro-inner { padding: 24px; }
+      .md-stats { padding: 30px 20px 0; }
+    }
+    @media (max-width: 440px) {
+      .md-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOP BAR (your existing topbar from style.css) ── -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <div class="topbar-item">
+          <span class="emoji">📞</span> 8594090565
+        </div>
+        <div class="topbar-item">
+          <span class="emoji">✉️</span> azarpublicschool@gmail.com
+        </div>
+        <div class="topbar-item">
+          <span class="emoji">🕘</span> Mon – Fri &nbsp;09:00 – 3:30
+        </div>
+      </div>
+      <div class="topbar-right">
+        <a href="#" class="topbar-social-btn" aria-label="Facebook">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" class="topbar-social-btn" aria-label="Instagram">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" class="topbar-social-btn" aria-label="Twitter">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+        </a>
+        <a href="#" class="topbar-social-btn" aria-label="YouTube">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon fill="rgba(255,255,255,0.25)" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NAV (your existing nav from style.css) ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <img style="width: 80px;" src="/Assets/AzharLogo.jpeg" alt="Azhar Logo">
+        </div>
+        <div class="logo-text">
+          <div class="school-name">Azar</div>
+          <div class="school-sub">Public School Malappuram</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/Index.html">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#admission">Admission</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="/mandatory_disclosure" class="active">Mandatory Disclosure</a></li>
+        <li><a href="#contact">Events</a></li>
+      </ul>
+      <a href="#contact" class="btn-contact">Contact Us</a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/Index.html" onclick="toggleMenu()">Home</a>
+        <a href="#about" onclick="toggleMenu()">About Us</a>
+        <a href="#admission" onclick="toggleMenu()">Admission</a>
+        <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+        <a href="/mandatory_disclosure" onclick="toggleMenu()">Mandatory Disclosure</a>
+        <a href="#contact" onclick="toggleMenu()">Events</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="md-hero">
+    <div class="md-hero-blob md-hero-blob-1"></div>
+    <div class="md-hero-blob md-hero-blob-2"></div>
+    <div class="md-hero-blob md-hero-blob-3"></div>
+
+    <div class="md-badge">📋 CBSE Compliance · 2024–25</div>
+
+    <h1>Mandatory <em>Disclosure</em></h1>
+
+    <p class="md-hero-sub">
+      Complete transparency for parents, students &amp; stakeholders — as mandated by the
+      Central Board of Secondary Education (CBSE), India.
+    </p>
+
+    <div class="md-breadcrumb">
+      <a href="/Index.html">Home</a>
+      <span>›</span>
+      <span>Mandatory Disclosure</span>
+    </div>
+  </section>
+
+  <!-- ── INTRO ── -->
+  <div class="md-intro">
+    <div class="md-intro-inner">
+      <h2>Our Commitment to Transparency</h2>
+      <p>
+        Welcome to Azar Public School's Mandatory Disclosure page, where we provide comprehensive information
+        in accordance with the requirements of the Central Board of Secondary Education (CBSE) India.
+        Transparency and accountability are fundamental principles guiding our educational institution.
+        This page serves as a valuable resource for parents, students, and stakeholders, ensuring access
+        to essential details about our school's functioning.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── STATS ── -->
+  <div class="md-stats">
+    <div class="md-stat"><strong>2500+</strong><span>Students</span></div>
+    <div class="md-stat"><strong>120+</strong><span>Staff Members</span></div>
+    <div class="md-stat"><strong>CBSE</strong><span>Affiliated</span></div>
+    <div class="md-stat"><strong>1998</strong><span>Established</span></div>
+    <div class="md-stat"><strong>A+</strong><span>NAAC Grade</span></div>
+  </div>
+
+  <!-- ── DOCUMENTS ── -->
+  <div class="md-section-title">
+    <h2>Official Documents &amp; Reports</h2>
+    <p>Click <strong>View</strong> to open in browser &nbsp;·&nbsp; <strong>Download</strong> to save a copy</p>
+    <div class="md-title-line"></div>
+  </div>
+
+  <div class="md-grid" id="mdGrid"></div>
+
+  <!-- ── PDF MODAL ── -->
+  <div class="md-modal" id="mdModal">
+    <div class="md-modal-box">
+      <div class="md-modal-head">
+        <h3 id="mdModalTitle">Document</h3>
+        <div class="md-modal-head-right">
+          <button class="md-modal-dl" id="mdModalDl">⬇ Download</button>
+          <button class="md-modal-close" onclick="mdClose()">✕</button>
+        </div>
+      </div>
+      <div class="md-modal-body" id="mdModalBody"></div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="md-footer">
+    <p>© 2025 <strong>Azar Public School</strong>, Malappuram &nbsp;·&nbsp; All Rights Reserved</p>
+    <p style="margin-top:6px">CBSE Affiliation No. XXXXXXX &nbsp;·&nbsp; <a href="tel:8594090565">📞 8594090565</a> &nbsp;·&nbsp; <a href="mailto:azarpublicschool@gmail.com">✉ azarpublicschool@gmail.com</a></p>
+  </footer>
+
+  <!-- ── SCRIPT ── -->
+  <script>
+    // ── Replace `file: null` with actual PDF paths e.g. "/pdfs/annual-report.pdf"
+    const mdDocs = [
+      { id:  1, title: "Annual Report 2024–25",                  file: null, icon: "📄" },
+      { id:  2, title: "Building Safety & Fitness Certificate",  file: null, icon: "🏗️" },
+      { id:  3, title: "Fee Structure 2025–26",                  file: null, icon: "💰" },
+      { id:  4, title: "General Information",                    file: null, icon: "ℹ️" },
+      { id:  5, title: "Health Certificate",                     file: null, icon: "🏥" },
+      { id:  6, title: "Land Certificate",                       file: null, icon: "🗺️" },
+      { id:  7, title: "No Objection Certificate (NOC)",         file: null, icon: "✅" },
+      { id:  8, title: "Recognition Certificate",                file: null, icon: "🎖️" },
+      { id:  9, title: "School Infrastructure Details",          file: null, icon: "🏫" },
+      { id: 10, title: "Staff Information 2024–25",              file: null, icon: "👩‍🏫" },
+      { id: 11, title: "Water & Sanitation Certificate",         file: null, icon: "💧" },
+      { id: 12, title: "Result Summary 2023–24",                 file: null, icon: "📊" },
+    ];
+
+    // ── Render cards
+    const grid = document.getElementById('mdGrid');
+    mdDocs.forEach((doc, i) => {
+      const delay = `${i * 0.055}s`;
+      grid.innerHTML += `
+        <div class="md-card" style="animation-delay:${delay}">
+          <div class="md-card-num">${i + 1}</div>
+          <div class="md-card-icon">
+            <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="2" width="44" height="58" rx="6" fill="#e6f7f6" stroke="#2dc3b8" stroke-width="2.5"/>
+              <path d="M36 2v14h14" stroke="#2dc3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 30h28M12 38h28M12 46h18" stroke="#1e3a4a" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="52" cy="58" r="12" fill="#2dc3b8"/>
+              <path d="M47 58l3.5 4 6-7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>${doc.title}</h3>
+          <div class="md-card-btns">
+            <button class="md-btn-view" onclick="mdOpen(${doc.id})">👁 View</button>
+            <button class="md-btn-dl"   onclick="mdDownload(${doc.id})">⬇ Save</button>
+          </div>
+        </div>`;
+    });
+
+    // ── Open modal
+    function mdOpen(id) {
+      const doc = mdDocs.find(d => d.id === id);
+      document.getElementById('mdModalTitle').textContent = doc.title;
+      document.getElementById('mdModalDl').onclick = () => mdDownload(id);
+
+      const body = document.getElementById('mdModalBody');
+      body.innerHTML = doc.file
+        ? `<iframe src="${doc.file}#toolbar=1" title="${doc.title}"></iframe>`
+        : `<div class="md-placeholder">
+             <div class="ph-icon">${doc.icon}</div>
+             <p>${doc.title}</p>
+             <small>To display this PDF, set <code>file: "/your-path.pdf"</code> in the <code>mdDocs</code> array inside the script.</small>
+           </div>`;
+
+      document.getElementById('mdModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // ── Close modal
+    function mdClose() {
+      document.getElementById('mdModal').classList.remove('open');
+      document.getElementById('mdModalBody').innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    // ── Click backdrop to close
+    document.getElementById('mdModal').addEventListener('click', function(e) {
+      if (e.target === this) mdClose();
+    });
+
+    // ── ESC to close
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') mdClose(); });
+
+    // ── Download
+    function mdDownload(id) {
+      const doc = mdDocs.find(d => d.id === id);
+      if (doc.file) {
+        const a = document.createElement('a');
+        a.href = doc.file;
+        a.download = doc.title.replace(/\s+/g, '_') + '.pdf';
+        a.click();
+      } else {
+        alert(`"${doc.title}"\n\nPlease link a real PDF path in the mdDocs array to enable download.`);
+      }
+    }
+
+    // ── Mobile menu toggle (matches your existing site)
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

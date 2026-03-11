@@ -8,7 +8,7 @@
   <meta name="keywords" content="Azar, Public School, Malappuram, Education, Admission">
   <meta name="author" content="Arshaq">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
   <link rel="icon" type="image/png" href="/Assets/logo (2).png">
 </head>
 <body>
@@ -60,19 +60,20 @@
             </div>
         </a>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
+        <li><a href="/Index.html">Home</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#admission">Admission</a></li>
         <li><a href="#gallery">Gallery</a></li>
+            <li><a href="/manditary_discloser">Manditary Discloser</a></li>
+
         <li><a href="#contact">Events</a></li>
       </ul>
       <a href="#contact" class="btn-contact">Contact Us</a>
       <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
-      </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#home" onclick="toggleMenu()">Home</a>
+      <a href="/Index.html" onclick="toggleMenu()">Home</a>
       <a href="#about" onclick="toggleMenu()">About Us</a>
       <a href="#admission" onclick="toggleMenu()">Admission</a>
       <a href="#gallery" onclick="toggleMenu()">Gallery</a>
@@ -445,6 +446,116 @@
     </div>
   </section>
 
+ 
+<section class="facilities-section">
+  <div class="facilities-header">
+    <h2>Our facilities for quality Education</h2>
+    <p>
+      Our aim is to make learner efficient both at the personal and social level creating extra ordinary
+      students. Apart from just learning from books, we also encourage students to actively participate
+      in other co scholastic activities.
+    </p>
+  </div>
+
+  <div class="facilities-grid">
+
+    <!-- Card 1 — Bus Service -->
+    <div class="facility-card">
+      <!-- Replace src with your actual bus image -->
+      <img
+        class="card-img"
+        src="/Assets/Banner1.png"
+        alt="Bus Service"
+      />
+      <div class="card-label">Bus Service</div>
+      <div class="card-body">
+        <div class="card-icon">🚌</div>
+        <h3>Bus Service</h3>
+        <p>Safe and reliable transportation covering all nearby locations for students.</p>
+      </div>
+    </div>
+
+    <!-- Card 2 — Labs -->
+    <div class="facility-card">
+      <img
+        class="card-img"
+        src="/Assets/Banner2.png"
+        alt="Labs"
+      />
+      <div class="card-label">Labs</div>
+      <div class="card-body">
+        <div class="card-icon">
+          <!-- Lab beaker SVG icon -->
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 8v22L10 52h44L40 30V8" stroke="#2dc3b8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 8h24" stroke="#2dc3b8" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="20" cy="44" r="2" fill="#f59e0b"/>
+            <circle cx="36" cy="48" r="1.5" fill="#f59e0b"/>
+            <circle cx="28" cy="42" r="1" fill="#f59e0b"/>
+          </svg>
+        </div>
+        <h3>Labs</h3>
+        <p>Thousands of books accessible to students of all grades and Well Equipped Modern IT, Montessori, Labs.</p>
+      </div>
+    </div>
+
+    <!-- Card 3 — Smart Classrooms -->
+    <div class="facility-card">
+      <img
+        class="card-img"
+        src="/Assets/Banner3.jpeg"
+        alt="Smart Classrooms"
+      />
+      <div class="card-label">Smart Classrooms</div>
+      <div class="card-body">
+        <div class="card-icon">
+          <!-- Smart classroom / radio icon -->
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="28" width="44" height="28" rx="4" stroke="#4b8fa6" stroke-width="3"/>
+            <circle cx="24" cy="42" r="6" stroke="#4b8fa6" stroke-width="3"/>
+            <line x1="36" y1="36" x2="50" y2="36" stroke="#4b8fa6" stroke-width="3" stroke-linecap="round"/>
+            <line x1="36" y1="44" x2="50" y2="44" stroke="#4b8fa6" stroke-width="3" stroke-linecap="round"/>
+            <path d="M20 22 Q32 14 44 22" stroke="#4b8fa6" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M24 18 Q32 12 40 18" stroke="#4b8fa6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <circle cx="32" cy="16" r="2" fill="#4b8fa6"/>
+          </svg>
+        </div>
+        <h3>Smart class rooms</h3>
+        <p>Digitalised classrooms makes the learning much effective and classroom more live and fruitful.</p>
+      </div>
+    </div>
+
+    <!-- Card 4 — Skill Developments -->
+    <div class="facility-card">
+      <img
+        class="card-img"
+        src="/Assets/Banner4.jpeg"
+        alt="Skill Developments"
+      />
+      <div class="card-label">Skill Developments</div>
+      <div class="card-body">
+        <div class="card-icon">
+          <!-- Medal icon -->
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="40" r="16" stroke="#f59e0b" stroke-width="3"/>
+            <circle cx="32" cy="40" r="10" stroke="#f59e0b" stroke-width="2"/>
+            <path d="M24 8 L32 24 L40 8" stroke="#e53e3e" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M28 8 L32 24 L36 8" stroke="#3b82f6" stroke-width="3" stroke-linejoin="round"/>
+            <text x="32" y="44" text-anchor="middle" font-size="12" fill="#f59e0b" font-weight="bold">1</text>
+          </svg>
+        </div>
+        <h3>Skill Developments</h3>
+        <p>The Institute combines fitness and fun with expert-led programs in football, roller-skating, and similar activities.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="explore-more">
+    <a href="#">Explore more</a>
+  </div>
+</section>
+
   <!-- ADMISSION -->
   <section class="admission" id="admission">
     <div class="section-header">
@@ -609,10 +720,11 @@
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#home">Home</a></li>
+            <li><a href="/Index.html">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#admission">Admission</a></li>
             <li><a href="#gallery">Gallery</a></li>
+            <li><a href="/manditary_discloser">Manditary Discloser</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
